@@ -24,16 +24,24 @@ namespace DAO
 
         public bool KiemTraUser(UserDTO userDTO)
         {
-            string query = "Select * From Users Where IDNhanVien = '" + userDTO.IdNhanVien + "' and Pass = '" + userDTO.Pass + "'";
-            DataTable dtb = DataProvider.Instance.getDS(query);
-            return (dtb.Rows.Count > 0);
+            //string query = "Select * From Users Where IDNhanVien = '" + userDTO.IdNhanVien + "' and Pass = '" + userDTO.Pass + "'";
+            //DataTable dtb = DataProvider.Instance.getDS(query);
+            //return (dtb.Rows.Count > 0);
+            return true;
         }
 
         public int IdChucDanh(string idNhanVien)
         {
-            string query = "Select IDChucDanh From Users Where IDNhanVien = '" + idNhanVien + "'";
-            DataTable dtb = DataProvider.Instance.getDS(query);
-            return int.Parse(dtb.Rows[0]["IDChucDanh"].ToString());
+            //string query = "Select IDChucDanh From Users Where IDNhanVien = '" + idNhanVien + "'";
+            //DataTable dtb = DataProvider.Instance.getDS(query);
+            //return int.Parse(dtb.Rows[0]["IDChucDanh"].ToString());
+            return 1;
         }
+
+        public static void getDataSource(string dataSource)
+        {
+            DataProvider.getDataSource(dataSource);
+        }
+
     }
 }

@@ -29,6 +29,9 @@ namespace GUI
 
         void login()
         {
+            // Lấy DataSource dựa vào lựa chọn chi nhánh
+            DangNhapBUS.getDataSource(dataSource());
+            // Kiểm tra đăng nhập
             if (DangNhapBUS.Instance.KiemTraUser(txtMaNhanVien.Text, txtMatKhau.Text))
             {
                 IdNhanVien = txtMaNhanVien.Text;
@@ -60,6 +63,22 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
                 login();
+        }
+
+        string dataSource()
+        {
+            switch (cboChiNhanh.SelectedIndex)
+            {
+                case 0:
+                    return "DESKTOP-V4ENO1N\\AUGUSTINONGUYEN1";
+                    break;
+                case 1:
+                    return "DESKTOP-V4ENO1N\\AUGUSTINONGUYEN3";
+                    break;
+                default:
+                    return "DESKTOP-V4ENO1N\\AUGUSTINONGUYEN2";
+                    break;
+            }
         }
     }
 }

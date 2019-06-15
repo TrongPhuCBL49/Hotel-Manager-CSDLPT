@@ -11,6 +11,7 @@ namespace DAO
 {
     public class DataProvider
     {
+        public static string DataSource { get; set; }
         private static DataProvider instance;
         public static DataProvider Instance
         {
@@ -31,12 +32,18 @@ namespace DAO
             connectDB();
         }
 
+        public static void getDataSource(string dataSource)
+        {
+            DataSource = dataSource;
+        }
+
         //Kết nối
         public void connectDB()
         {
-            string strCon = "Data Source=DESKTOP-G5TUN54;" +
+            string strCon = "Data Source=" + DataSource + ";" +
                             "Initial Catalog=SimpleQuanLyKhachSan;" +
-                            "Integrated Security=True";
+                            "User id=sa;" +
+                            "Password=04010409tete;";
             con = new SqlConnection(strCon);
             cmd = con.CreateCommand();
             try

@@ -34,5 +34,10 @@ namespace BUS
         {
             return DangNhapDAO.Instance.IdChucDanh(idNhanVien);
         }
+        public static void getDataSource(string dataSource)
+        {
+            DangNhapDAO.getDataSource(dataSource);
+        }
+
     }
 }
