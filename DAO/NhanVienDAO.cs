@@ -35,7 +35,8 @@ namespace DAO
         {
             string[] param = { "@ID", "@Ten", "@IDChucDanh", "@NgaySinh", "@GioiTinh", "@DiaChi", "@SDT", "@CMND", "@Email", "@IDChiNhanh" };
             object[] values = { nhanVien.Id, nhanVien.Ten, nhanVien.IdChucDanh, nhanVien.NgaySinh, nhanVien.GioiTinh, nhanVien.DiaChi, nhanVien.Sdt, nhanVien.Cmnd, nhanVien.Email, nhanVien.IdChiNhanh };
-            string query = "Insert Into NhanVien Values(@ID,@Ten,convert(date,@NgaySinh,105),@GioiTinh,@DiaChi,@SDT,@CMND,@Email,@IDChucDanh,@IDChiNhanh)";
+            string query = "Insert Into NhanVien (ID, Ten, NgaySinh, GioiTinh, DiaChi, SDT, CMND, Email, IDChucDanh, IDChiNhanh)" +
+                           "Values(@ID,@Ten,convert(date,@NgaySinh,105),@GioiTinh,@DiaChi,@SDT,@CMND,@Email,@IDChucDanh,@IDChiNhanh)";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool SuaNhanVien(NhanVienDTO nhanVien)
