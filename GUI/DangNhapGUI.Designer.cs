@@ -35,15 +35,14 @@
             this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cboChiNhanh = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cboChiNhanh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboChiNhanh.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelDangNhap
@@ -51,7 +50,7 @@
             this.btnCancelDangNhap.Location = new System.Drawing.Point(461, 515);
             this.btnCancelDangNhap.Name = "btnCancelDangNhap";
             this.btnCancelDangNhap.Size = new System.Drawing.Size(200, 56);
-            this.btnCancelDangNhap.TabIndex = 4;
+            this.btnCancelDangNhap.TabIndex = 5;
             this.btnCancelDangNhap.Text = "Cancel";
             this.btnCancelDangNhap.Click += new System.EventHandler(this.btnCancelDangNhap_Click);
             // 
@@ -60,7 +59,7 @@
             this.btnDangNhap.Location = new System.Drawing.Point(130, 515);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(200, 56);
-            this.btnDangNhap.TabIndex = 3;
+            this.btnDangNhap.TabIndex = 4;
             this.btnDangNhap.Text = "OK";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -97,7 +96,7 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Properties.PasswordChar = '9';
             this.txtMatKhau.Size = new System.Drawing.Size(368, 50);
-            this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.TabIndex = 3;
             // 
             // txtMaNhanVien
             // 
@@ -105,7 +104,7 @@
             this.txtMaNhanVien.Location = new System.Drawing.Point(302, 183);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(368, 50);
-            this.txtMaNhanVien.TabIndex = 1;
+            this.txtMaNhanVien.TabIndex = 2;
             // 
             // labelControl2
             // 
@@ -115,14 +114,6 @@
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Mật khẩu: ";
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(51, 187);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(168, 33);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Mã nhân viên:";
-            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(51, 99);
@@ -131,19 +122,22 @@
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Chi Nhánh:";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(51, 187);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(168, 33);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Mã nhân viên:";
+            // 
             // cboChiNhanh
             // 
-            this.cboChiNhanh.EditValue = "Khách sạn Hồng Hạnh 1";
-            this.cboChiNhanh.Location = new System.Drawing.Point(302, 92);
+            this.cboChiNhanh.FormattingEnabled = true;
+            this.cboChiNhanh.Location = new System.Drawing.Point(302, 96);
+            this.cboChiNhanh.Margin = new System.Windows.Forms.Padding(8);
             this.cboChiNhanh.Name = "cboChiNhanh";
-            this.cboChiNhanh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboChiNhanh.Properties.Items.AddRange(new object[] {
-            "Khách sạn Hồng Hạnh 1",
-            "Khách sạn Hồng Hạnh 2",
-            "Server Tổng"});
-            this.cboChiNhanh.Size = new System.Drawing.Size(368, 50);
-            this.cboChiNhanh.TabIndex = 3;
+            this.cboChiNhanh.Size = new System.Drawing.Size(368, 41);
+            this.cboChiNhanh.TabIndex = 1;
             // 
             // DangNhapGUI
             // 
@@ -163,7 +157,6 @@
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboChiNhanh.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,8 +172,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private DevExpress.XtraEditors.ComboBoxEdit cboChiNhanh;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.ComboBox cboChiNhanh;
     }
 }
 

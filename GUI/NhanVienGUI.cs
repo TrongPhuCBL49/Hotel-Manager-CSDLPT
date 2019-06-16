@@ -42,6 +42,14 @@ namespace GUI
             foreach (DataRow row in dtbChucDanh.Rows)
                 cboChucDanh.Properties.Items.Add(row["Ten"]);
         }
+  
+        //void LoadChiNhanh()
+        //{
+        //    DataTable dtbChiNhanh = ChucDanhBUS.Instance.DSChucDanh();
+        //    foreach (DataRow row in dtbChucDanh.Rows)
+        //        cboChucDanh.Properties.Items.Add(row["Ten"]);
+        //}
+
         void LoadGioiTinh()
         {
             List<string> TrangThai = new List<string>();

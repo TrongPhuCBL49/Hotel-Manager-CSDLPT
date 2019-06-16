@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using BUS;
+using System.Data.SqlClient;
 
 namespace GUI
 {
@@ -19,6 +20,10 @@ namespace GUI
         public DangNhapGUI()
         {
             InitializeComponent();
+            //Load danh sách Chi Nhánh
+            List<String> ChiNhanhs = loadChiNhanh();
+            ChiNhanhs.Add("Server Tổng");
+            cboChiNhanh.DataSource = ChiNhanhs;
             txtMaNhanVien.Focus();
         }
 
@@ -29,8 +34,8 @@ namespace GUI
 
         void login()
         {
-            // Lấy DataSource dựa vào lựa chọn chi nhánh
-            DangNhapBUS.getDataSource(dataSource());
+            // Lấy Tên server dựa vào lựa chọn chi nhánh
+            DangNhapBUS.getDataSource(dataSource(cboChiNhanh.SelectedIndex));
             // Kiểm tra đăng nhập
             if (DangNhapBUS.Instance.KiemTraUser(txtMaNhanVien.Text, txtMatKhau.Text))
             {
@@ -65,9 +70,9 @@ namespace GUI
                 login();
         }
 
-        string dataSource()
+        private string dataSource(int index)
         {
-            switch (cboChiNhanh.SelectedIndex)
+            switch (index)
             {
                 case 0:
                     return "DESKTOP-V4ENO1N\\AUGUSTINONGUYEN1";
@@ -80,5 +85,26 @@ namespace GUI
                     break;
             }
         }
+        // Load danh sách Chi Nhánh lên form đăng nhập
+        public List<String> loadChiNhanh()
+        {
+            List<String> list = new List<string>();
+            string strCon = "Data Source=" + dataSource(2) + ";" +
+                            "Initial Catalog=SimpleQuanLyKhachSan;" +
+                            "User id=sa;" +
+                            "Password=04010409tete;";
+            using (SqlConnection con = new SqlConnection(strCon))
+            {
+                con.Open();
+                DataTable tbl = new DataTable();
+                string sql = "Select * From ChiNhanh";
+                SqlDataAdapter dap = new SqlDataAdapter(sql, con);
+                dap.Fill(tbl);
+                foreach (DataRow row in tbl.Rows)
+                    list.Add(row["Ten"].ToString());
+            }
+            return list;
+        }
+
     }
 }
