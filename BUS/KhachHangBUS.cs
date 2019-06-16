@@ -30,7 +30,7 @@ namespace BUS
             return KhachHangDAO.Instance.DSKhachHang();
         }
 
-        public bool ThemKhachHang(string Id, string TenKhachHang, DateTime NgaySinh, string GioiTinh, string QuocTich, string SDT, string CMND, string Email)
+        public bool ThemKhachHang(string Id, string TenKhachHang, DateTime NgaySinh, string GioiTinh, string QuocTich, string SDT, string CMND, string Email, string ChiNhanh)
         {
             KhachHangDTO KhachHang = new KhachHangDTO();
             try
@@ -43,6 +43,7 @@ namespace BUS
                 KhachHang.Sdt = SDT;
                 KhachHang.Cmnd = CMND;
                 KhachHang.Email = Email;
+                KhachHang.IdChiNhanh = ChiNhanh;
             }
             catch (Exception)
             {
@@ -50,7 +51,7 @@ namespace BUS
             }
             return KhachHangDAO.Instance.ThemKhachHang(KhachHang);
         }
-        public bool SuaKhachHang(string Id, string TenKhachHang, DateTime NgaySinh, string GioiTinh, string QuocTich, string SDT, string CMND, string Email)
+        public bool SuaKhachHang(string Id, string TenKhachHang, DateTime NgaySinh, string GioiTinh, string QuocTich, string SDT, string CMND, string Email, string ChiNhanh)
         {
             KhachHangDTO KhachHang = new KhachHangDTO();
             try
@@ -63,6 +64,7 @@ namespace BUS
                 KhachHang.Sdt = SDT;
                 KhachHang.Cmnd = CMND;
                 KhachHang.Email = Email;
+                KhachHang.IdChiNhanh = ChiNhanh;
             }
             catch (Exception)
             {

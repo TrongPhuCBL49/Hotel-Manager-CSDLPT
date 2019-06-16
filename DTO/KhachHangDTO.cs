@@ -16,6 +16,7 @@ namespace DTO
         private string _sdt;
         private string _cmnd;
         private string _quocTich;
+        private string _idChiNhanh;
 
         public string Id { get => _id; set => _id = value; }
         public string Ten { get => _ten; set => _ten = value; }
@@ -25,5 +26,6 @@ namespace DTO
         public string Sdt { get => _sdt; set => _sdt = value; }
         public string Cmnd { get => _cmnd; set => _cmnd = value; }
         public string QuocTich { get => _quocTich; set => _quocTich = value; }
+        public string IdChiNhanh { get => _idChiNhanh; set => _idChiNhanh = value; }
     }
 }

@@ -26,22 +26,23 @@ namespace DAO
 
         public DataTable DSKhachHang()
         {
-            string query = "Select * From KhachHang";
+            string query = "Select ID, Ten, NgaySinh, GioiTinh, Email, SDT, CMND, QuocTich, IDChiNhanh as ChiNhanh From KhachHang";
             return DataProvider.Instance.getDS(query);
         }
 
         public bool ThemKhachHang(KhachHangDTO khachHang)
         {
-            string[] param = { "@ID", "@Ten", "@NgaySinh", "@GioiTinh", "@Email", "@SDT", "@CMND", "@QuocTich" };
-            object[] values = { khachHang.Id, khachHang.Ten, khachHang.NgaySinh, khachHang.GioiTinh, khachHang.Email, khachHang.Sdt, khachHang.Cmnd, khachHang.QuocTich };
-            string query = "Insert Into KhachHang Values(@ID,@Ten,convert(date,@NgaySinh,105),@GioiTinh,@Email,@SDT,@CMND,@QuocTich)";
+            string[] param = { "@ID", "@Ten", "@NgaySinh", "@GioiTinh", "@Email", "@SDT", "@CMND", "@QuocTich", "@IDChiNhanh" };
+            object[] values = { khachHang.Id, khachHang.Ten, khachHang.NgaySinh, khachHang.GioiTinh, khachHang.Email, khachHang.Sdt, khachHang.Cmnd, khachHang.QuocTich, khachHang.IdChiNhanh };
+            string query = "Insert Into KhachHang (ID, Ten, NgaySinh, GioiTinh, Email, SDT, CMND, QuocTich, IDChiNhanh) " +
+                           "Values(@ID,@Ten,convert(date,@NgaySinh,105),@GioiTinh,@Email,@SDT,@CMND,@QuocTich,@IDChiNhanh)";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool SuaKhachHang(KhachHangDTO khachHang)
         {
-            string[] param = { "@ID", "@Ten", "@NgaySinh", "@GioiTinh", "@Email", "@SDT", "@CMND", "@QuocTich" };
-            object[] values = { khachHang.Id, khachHang.Ten, khachHang.NgaySinh, khachHang.GioiTinh, khachHang.Email, khachHang.Sdt, khachHang.Cmnd, khachHang.QuocTich };
-            string query = "Update KhachHang Set Ten=@Ten, NgaySinh=convert(date,@NgaySinh,105), GioiTinh=@GioiTinh, QuocTich=@QuocTich, SDT=@SDT, CMND=@CMND, Email=@Email Where ID=@ID";
+            string[] param = { "@ID", "@Ten", "@NgaySinh", "@GioiTinh", "@Email", "@SDT", "@CMND", "@QuocTich",  "@IDChiNhanh" };
+            object[] values = { khachHang.Id, khachHang.Ten, khachHang.NgaySinh, khachHang.GioiTinh, khachHang.Email, khachHang.Sdt, khachHang.Cmnd, khachHang.QuocTich, khachHang.IdChiNhanh };
+            string query = "Update KhachHang Set Ten=@Ten, NgaySinh=convert(date,@NgaySinh,105), GioiTinh=@GioiTinh, QuocTich=@QuocTich, SDT=@SDT, CMND=@CMND, Email=@Email, IDChiNhanh=@IDChiNhanh Where ID=@ID";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool XoaKhachHang(KhachHangDTO khachHang)

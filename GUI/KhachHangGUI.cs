@@ -25,12 +25,14 @@ namespace GUI
         {
             LoadKhachHang();
             LoadGioiTinh();
+            LoadChiNhanh();
         }
         void LoadKhachHang()
         {
             dgvKhachHang.DataSource = KhachHangBUS.Instance.DSKhachHang();
             BindingKhachHang();
             isThem = false;
+            if (DangNhapGUI.IndexChiNhanh != 2) cboChiNhanh.Enabled = false;
             txtID.Enabled = false;
             btnHuyBo.Enabled = false;
             btnLuu.Enabled = false;
@@ -43,6 +45,14 @@ namespace GUI
             TrangThai.Add("Khác");
             cboGioiTinh.Properties.Items.AddRange(TrangThai);
         }
+        void LoadChiNhanh()
+        {
+            List<string> ChiNhanh = new List<string>();
+            ChiNhanh.Add("CN1");
+            ChiNhanh.Add("CN2");
+            cboChiNhanh.Properties.Items.AddRange(ChiNhanh);
+        }
+
         public void BindingKhachHang()
         {
             BindingSource source = new BindingSource();
@@ -56,6 +66,7 @@ namespace GUI
             txtSDT.DataBindings.Add("Text", source, "SDT", true, DataSourceUpdateMode.OnPropertyChanged);
             txtCMND.DataBindings.Add("Text", source, "CMND", true, DataSourceUpdateMode.OnPropertyChanged);
             txtEmail.DataBindings.Add("Text", source, "Email", true, DataSourceUpdateMode.OnPropertyChanged);
+            cboChiNhanh.DataBindings.Add("Text", source, "ChiNhanh", true, DataSourceUpdateMode.OnPropertyChanged);
             dgvKhachHang.DataSource = source;
         }
 
@@ -80,6 +91,7 @@ namespace GUI
             txtSDT.DataBindings.Clear();
             txtCMND.DataBindings.Clear();
             txtEmail.DataBindings.Clear();
+            cboChiNhanh.DataBindings.Clear();
             dgvKhachHang.DataBindings.Clear();
         }
 
@@ -100,14 +112,14 @@ namespace GUI
         {
             if (isThem)
             {
-                if (KhachHangBUS.Instance.ThemKhachHang(txtID.Text, txtTenKhachHang.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtQuocTich.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text))
+                if (KhachHangBUS.Instance.ThemKhachHang(txtID.Text, txtTenKhachHang.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtQuocTich.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
                     MessageBox.Show("Thêm khách hàng thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Thêm khách hàng thất bại!");
             }
             else
             {
-                if (KhachHangBUS.Instance.SuaKhachHang(txtID.Text, txtTenKhachHang.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtQuocTich.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text))
+                if (KhachHangBUS.Instance.SuaKhachHang(txtID.Text, txtTenKhachHang.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtQuocTich.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
                     MessageBox.Show("Chỉnh sửa khách hàng thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Chỉnh sửa khách hàng thất bại!");

@@ -62,6 +62,9 @@
             this.CMND = new DevExpress.XtraGrid.Columns.GridColumn();
             this.QuocTich = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Email = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.cboChiNhanh = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.ChiNhanh = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grpChucNang)).BeginInit();
             this.grpChucNang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpThongTin)).BeginInit();
@@ -81,6 +84,7 @@
             this.gridSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboChiNhanh.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grpChucNang
@@ -133,12 +137,14 @@
             // 
             // grpThongTin
             // 
+            this.grpThongTin.Controls.Add(this.cboChiNhanh);
             this.grpThongTin.Controls.Add(this.cboGioiTinh);
+            this.grpThongTin.Controls.Add(this.labelControl9);
             this.grpThongTin.Controls.Add(this.cboNgaySinh);
+            this.grpThongTin.Controls.Add(this.labelControl4);
             this.grpThongTin.Controls.Add(this.labelControl7);
             this.grpThongTin.Controls.Add(this.labelControl8);
             this.grpThongTin.Controls.Add(this.txtEmail);
-            this.grpThongTin.Controls.Add(this.labelControl4);
             this.grpThongTin.Controls.Add(this.labelControl1);
             this.grpThongTin.Controls.Add(this.labelControl2);
             this.grpThongTin.Controls.Add(this.txtCMND);
@@ -157,11 +163,11 @@
             // 
             // cboGioiTinh
             // 
-            this.cboGioiTinh.Location = new System.Drawing.Point(251, 247);
+            this.cboGioiTinh.Location = new System.Drawing.Point(910, 327);
             this.cboGioiTinh.Name = "cboGioiTinh";
             this.cboGioiTinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboGioiTinh.Size = new System.Drawing.Size(362, 42);
+            this.cboGioiTinh.Size = new System.Drawing.Size(170, 50);
             this.cboGioiTinh.TabIndex = 5;
             this.cboGioiTinh.Click += new System.EventHandler(this.txt_Click);
             // 
@@ -174,13 +180,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboNgaySinh.Size = new System.Drawing.Size(362, 42);
+            this.cboNgaySinh.Size = new System.Drawing.Size(362, 50);
             this.cboNgaySinh.TabIndex = 3;
             this.cboNgaySinh.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(763, 168);
+            this.labelControl7.Location = new System.Drawing.Point(719, 170);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(83, 33);
             this.labelControl7.TabIndex = 10;
@@ -188,7 +194,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(763, 246);
+            this.labelControl8.Location = new System.Drawing.Point(719, 248);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(173, 34);
             this.labelControl8.TabIndex = 12;
@@ -196,15 +202,15 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(954, 325);
+            this.txtEmail.Location = new System.Drawing.Point(251, 243);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(531, 42);
+            this.txtEmail.Size = new System.Drawing.Size(362, 50);
             this.txtEmail.TabIndex = 8;
             this.txtEmail.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(64, 251);
+            this.labelControl4.Location = new System.Drawing.Point(719, 331);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(113, 34);
             this.labelControl4.TabIndex = 11;
@@ -220,7 +226,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(763, 90);
+            this.labelControl2.Location = new System.Drawing.Point(719, 92);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(131, 34);
             this.labelControl2.TabIndex = 10;
@@ -228,17 +234,17 @@
             // 
             // txtCMND
             // 
-            this.txtCMND.Location = new System.Drawing.Point(954, 164);
+            this.txtCMND.Location = new System.Drawing.Point(910, 166);
             this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(531, 42);
+            this.txtCMND.Size = new System.Drawing.Size(594, 50);
             this.txtCMND.TabIndex = 4;
             this.txtCMND.Click += new System.EventHandler(this.txt_Click);
             // 
             // txtTenKhachHang
             // 
-            this.txtTenKhachHang.Location = new System.Drawing.Point(954, 87);
+            this.txtTenKhachHang.Location = new System.Drawing.Point(910, 89);
             this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Size = new System.Drawing.Size(531, 42);
+            this.txtTenKhachHang.Size = new System.Drawing.Size(594, 50);
             this.txtTenKhachHang.TabIndex = 2;
             this.txtTenKhachHang.Click += new System.EventHandler(this.txt_Click);
             // 
@@ -252,15 +258,15 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(954, 243);
+            this.txtSDT.Location = new System.Drawing.Point(910, 245);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(531, 42);
+            this.txtSDT.Size = new System.Drawing.Size(594, 50);
             this.txtSDT.TabIndex = 6;
             this.txtSDT.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(763, 329);
+            this.labelControl6.Location = new System.Drawing.Point(64, 251);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(74, 33);
             this.labelControl6.TabIndex = 11;
@@ -278,7 +284,7 @@
             // 
             this.txtQuocTich.Location = new System.Drawing.Point(251, 325);
             this.txtQuocTich.Name = "txtQuocTich";
-            this.txtQuocTich.Size = new System.Drawing.Size(362, 42);
+            this.txtQuocTich.Size = new System.Drawing.Size(362, 50);
             this.txtQuocTich.TabIndex = 7;
             this.txtQuocTich.Click += new System.EventHandler(this.txt_Click);
             // 
@@ -286,7 +292,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(251, 87);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(362, 42);
+            this.txtID.Size = new System.Drawing.Size(362, 50);
             this.txtID.TabIndex = 1;
             // 
             // grpDanhSach
@@ -302,10 +308,10 @@
             // 
             this.gridSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridSplitContainer1.Grid = this.dgvKhachHang;
-            this.gridSplitContainer1.Location = new System.Drawing.Point(4, 52);
+            this.gridSplitContainer1.Location = new System.Drawing.Point(3, 48);
             this.gridSplitContainer1.Name = "gridSplitContainer1";
             this.gridSplitContainer1.Panel1.Controls.Add(this.dgvKhachHang);
-            this.gridSplitContainer1.Size = new System.Drawing.Size(2196, 640);
+            this.gridSplitContainer1.Size = new System.Drawing.Size(2198, 645);
             this.gridSplitContainer1.TabIndex = 0;
             // 
             // dgvKhachHang
@@ -314,7 +320,7 @@
             this.dgvKhachHang.Location = new System.Drawing.Point(0, 0);
             this.dgvKhachHang.MainView = this.gridView1;
             this.dgvKhachHang.Name = "dgvKhachHang";
-            this.dgvKhachHang.Size = new System.Drawing.Size(2196, 640);
+            this.dgvKhachHang.Size = new System.Drawing.Size(2198, 645);
             this.dgvKhachHang.TabIndex = 0;
             this.dgvKhachHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -329,7 +335,8 @@
             this.SDT,
             this.CMND,
             this.QuocTich,
-            this.Email});
+            this.Email,
+            this.ChiNhanh});
             this.gridView1.GridControl = this.dgvKhachHang;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -341,7 +348,7 @@
             this.ID.Name = "ID";
             this.ID.Visible = true;
             this.ID.VisibleIndex = 0;
-            this.ID.Width = 117;
+            this.ID.Width = 113;
             // 
             // Ten
             // 
@@ -350,7 +357,7 @@
             this.Ten.Name = "Ten";
             this.Ten.Visible = true;
             this.Ten.VisibleIndex = 1;
-            this.Ten.Width = 364;
+            this.Ten.Width = 351;
             // 
             // NgaySinh
             // 
@@ -359,7 +366,7 @@
             this.NgaySinh.Name = "NgaySinh";
             this.NgaySinh.Visible = true;
             this.NgaySinh.VisibleIndex = 2;
-            this.NgaySinh.Width = 281;
+            this.NgaySinh.Width = 271;
             // 
             // GioiTinh
             // 
@@ -368,7 +375,7 @@
             this.GioiTinh.Name = "GioiTinh";
             this.GioiTinh.Visible = true;
             this.GioiTinh.VisibleIndex = 3;
-            this.GioiTinh.Width = 168;
+            this.GioiTinh.Width = 162;
             // 
             // SDT
             // 
@@ -377,7 +384,7 @@
             this.SDT.Name = "SDT";
             this.SDT.Visible = true;
             this.SDT.VisibleIndex = 4;
-            this.SDT.Width = 236;
+            this.SDT.Width = 228;
             // 
             // CMND
             // 
@@ -386,7 +393,7 @@
             this.CMND.Name = "CMND";
             this.CMND.Visible = true;
             this.CMND.VisibleIndex = 5;
-            this.CMND.Width = 258;
+            this.CMND.Width = 249;
             // 
             // QuocTich
             // 
@@ -395,7 +402,7 @@
             this.QuocTich.Name = "QuocTich";
             this.QuocTich.Visible = true;
             this.QuocTich.VisibleIndex = 6;
-            this.QuocTich.Width = 304;
+            this.QuocTich.Width = 293;
             // 
             // Email
             // 
@@ -404,7 +411,34 @@
             this.Email.Name = "Email";
             this.Email.Visible = true;
             this.Email.VisibleIndex = 7;
-            this.Email.Width = 429;
+            this.Email.Width = 314;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(1143, 334);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(132, 33);
+            this.labelControl9.TabIndex = 11;
+            this.labelControl9.Text = "Chi Nhánh:";
+            // 
+            // cboChiNhanh
+            // 
+            this.cboChiNhanh.Location = new System.Drawing.Point(1334, 323);
+            this.cboChiNhanh.Name = "cboChiNhanh";
+            this.cboChiNhanh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboChiNhanh.Size = new System.Drawing.Size(170, 50);
+            this.cboChiNhanh.TabIndex = 5;
+            this.cboChiNhanh.Click += new System.EventHandler(this.txt_Click);
+            // 
+            // ChiNhanh
+            // 
+            this.ChiNhanh.Caption = "Chi Nhánh";
+            this.ChiNhanh.FieldName = "ChiNhanh";
+            this.ChiNhanh.Name = "ChiNhanh";
+            this.ChiNhanh.Visible = true;
+            this.ChiNhanh.VisibleIndex = 8;
+            this.ChiNhanh.Width = 177;
             // 
             // KhachHangGUI
             // 
@@ -436,6 +470,7 @@
             this.gridSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboChiNhanh.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,5 +511,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn CMND;
         private DevExpress.XtraGrid.Columns.GridColumn QuocTich;
         private DevExpress.XtraGrid.Columns.GridColumn Email;
+        private DevExpress.XtraEditors.ComboBoxEdit cboChiNhanh;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraGrid.Columns.GridColumn ChiNhanh;
     }
 }

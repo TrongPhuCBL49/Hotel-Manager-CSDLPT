@@ -33,7 +33,7 @@ namespace GUI
             dgvNhanVien.DataSource = NhanVienBUS.Instance.DSNhanVien();
             BindingNhanVien();
             isThem = false;
-            if (DangNhapGUI.IndexChiNhanh != 2) cboChiNhanh.Enabled = false;
+            if (DangNhapGUI.IndexChiNhanh != 2) cboChiNhanh.Enabled = false; 
             txtID.Enabled = false;
             btnHuyBo.Enabled = false;
             btnLuu.Enabled = false;
@@ -50,7 +50,7 @@ namespace GUI
             List<string> ChiNhanh = new List<string>();
             ChiNhanh.Add("CN1");
             ChiNhanh.Add("CN2");
-            cboGioiTinh.Properties.Items.AddRange(ChiNhanh);
+            cboChiNhanh.Properties.Items.AddRange(ChiNhanh);
         }
 
         void LoadGioiTinh()
