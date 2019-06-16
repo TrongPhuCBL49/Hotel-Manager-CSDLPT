@@ -34,7 +34,8 @@ namespace DAO
         {
             string[] param = { "@Ten", "@Gia", "@TienPhuThu", "@SoGiuong" };
             object[] values = { loaiPhong.Ten, loaiPhong.Gia, loaiPhong.TienPhuThu, loaiPhong.SoGiuong };
-            string query = "Insert Into LoaiPhong Values(@Ten,@Gia,@TienPhuThu,@SoGiuong)";
+            string query = "Insert Into LoaiPhong (Ten, Gia, TienPhuThu, SoGiuong)" +
+                           "Values(@Ten,@Gia,@TienPhuThu,@SoGiuong)";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool SuaLoaiPhong(LoaiPhongDTO loaiPhong)

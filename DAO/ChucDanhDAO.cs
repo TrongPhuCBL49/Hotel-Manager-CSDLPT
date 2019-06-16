@@ -34,7 +34,7 @@ namespace DAO
         {
             string[] param = { "@Ten" };
             object[] values = { chucDanh.Ten };
-            string query = "Insert Into ChucDanh Values(@Ten)";
+            string query = "Insert Into ChucDanh (Ten) Values(@Ten)";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool SuaChucDanh(ChucDanhDTO chucDanh)

@@ -34,7 +34,7 @@ namespace DAO
         {
             string[] param = { "@Ten", "@Gia" };
             object[] values = { dichVu.Ten, dichVu.Gia };
-            string query = "Insert Into DichVu Values(@Ten,@Gia)";
+            string query = "Insert Into DichVu (Ten, Gia) Values(@Ten,@Gia)";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool SuaDichVu(DichVuDTO dichVu)
