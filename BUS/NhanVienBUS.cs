@@ -30,7 +30,7 @@ namespace BUS
             return NhanVienDAO.Instance.DSNhanVien();
         }
 
-        public bool ThemNhanVien(string Id, string TenNhanVien, string ChucDanh, DateTime NgaySinh, string GioiTinh, string DiaChi, string SDT, string CMND, string Email)
+        public bool ThemNhanVien(string Id, string TenNhanVien, string ChucDanh, DateTime NgaySinh, string GioiTinh, string DiaChi, string SDT, string CMND, string Email, string ChiNhanh)
         {
             NhanVienDTO NhanVien = new NhanVienDTO();
             try
@@ -44,6 +44,7 @@ namespace BUS
                 NhanVien.Sdt = SDT;
                 NhanVien.Cmnd = CMND;
                 NhanVien.Email = Email;
+                NhanVien.IdChiNhanh = ChiNhanh;
             }
             catch (Exception)
             {
@@ -51,7 +52,7 @@ namespace BUS
             }
             return NhanVienDAO.Instance.ThemNhanVien(NhanVien);
         }
-        public bool SuaNhanVien(string Id, string TenNhanVien, string ChucDanh, DateTime NgaySinh, string GioiTinh, string DiaChi, string SDT, string CMND, string Email)
+        public bool SuaNhanVien(string Id, string TenNhanVien, string ChucDanh, DateTime NgaySinh, string GioiTinh, string DiaChi, string SDT, string CMND, string Email, string ChiNhanh)
         {
             NhanVienDTO NhanVien = new NhanVienDTO();
             try
@@ -65,6 +66,7 @@ namespace BUS
                 NhanVien.Sdt = SDT;
                 NhanVien.Cmnd = CMND;
                 NhanVien.Email = Email;
+                NhanVien.IdChiNhanh = ChiNhanh;
             }
             catch (Exception)
             {

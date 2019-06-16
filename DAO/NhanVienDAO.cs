@@ -26,23 +26,23 @@ namespace DAO
 
         public DataTable DSNhanVien()
         {
-            string query = "Select nv.ID, nv.Ten, cd.Ten as ChucDanh, nv.NgaySinh, nv.GioiTinh, nv.DiaChi, nv.SDT, nv.CMND, nv.Email " +
+            string query = "Select nv.ID, nv.Ten, cd.Ten as ChucDanh, nv.NgaySinh, nv.GioiTinh, nv.DiaChi, nv.SDT, nv.CMND, nv.Email, nv.IDChiNhanh as ChiNhanh " +
                            "From NhanVien as nv, ChucDanh as cd Where nv.IDChucDanh=cd.ID";
             return DataProvider.Instance.getDS(query);
         }
 
         public bool ThemNhanVien(NhanVienDTO nhanVien)
         {
-            string[] param = { "@ID", "@Ten", "@IDChucDanh", "@NgaySinh", "@GioiTinh", "@DiaChi", "@SDT", "@CMND", "@Email" };
-            object[] values = { nhanVien.Id, nhanVien.Ten, nhanVien.IdChucDanh, nhanVien.NgaySinh, nhanVien.GioiTinh, nhanVien.DiaChi, nhanVien.Sdt, nhanVien.Cmnd, nhanVien.Email };
-            string query = "Insert Into NhanVien Values(@ID,@Ten,convert(date,@NgaySinh,105),@GioiTinh,@DiaChi,@SDT,@CMND,@Email,@IDChucDanh)";
+            string[] param = { "@ID", "@Ten", "@IDChucDanh", "@NgaySinh", "@GioiTinh", "@DiaChi", "@SDT", "@CMND", "@Email", "@IDChiNhanh" };
+            object[] values = { nhanVien.Id, nhanVien.Ten, nhanVien.IdChucDanh, nhanVien.NgaySinh, nhanVien.GioiTinh, nhanVien.DiaChi, nhanVien.Sdt, nhanVien.Cmnd, nhanVien.Email, nhanVien.IdChiNhanh };
+            string query = "Insert Into NhanVien Values(@ID,@Ten,convert(date,@NgaySinh,105),@GioiTinh,@DiaChi,@SDT,@CMND,@Email,@IDChucDanh,@IDChiNhanh)";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool SuaNhanVien(NhanVienDTO nhanVien)
         {
-            string[] param = { "@ID", "@Ten", "@IDChucDanh", "@NgaySinh", "@GioiTinh", "@DiaChi", "@SDT", "@CMND", "@Email" };
-            object[] values = { nhanVien.Id, nhanVien.Ten, nhanVien.IdChucDanh, nhanVien.NgaySinh, nhanVien.GioiTinh, nhanVien.DiaChi, nhanVien.Sdt, nhanVien.Cmnd, nhanVien.Email };
-            string query = "Update NhanVien Set Ten=@Ten, IDChucDanh=@IDChucDanh, NgaySinh=convert(date,@NgaySinh,105), GioiTinh=@GioiTinh, DiaChi=@DiaChi, SDT=@SDT, CMND=@CMND, Email=@Email Where ID=@ID";
+            string[] param = { "@ID", "@Ten", "@IDChucDanh", "@NgaySinh", "@GioiTinh", "@DiaChi", "@SDT", "@CMND", "@Email", "@IDChiNhanh" };
+            object[] values = { nhanVien.Id, nhanVien.Ten, nhanVien.IdChucDanh, nhanVien.NgaySinh, nhanVien.GioiTinh, nhanVien.DiaChi, nhanVien.Sdt, nhanVien.Cmnd, nhanVien.Email, nhanVien.IdChiNhanh };
+            string query = "Update NhanVien Set Ten=@Ten, IDChucDanh=@IDChucDanh, NgaySinh=convert(date,@NgaySinh,105), GioiTinh=@GioiTinh, DiaChi=@DiaChi, SDT=@SDT, CMND=@CMND, Email=@Email, IDChiNhanh=@IDChiNhanh Where ID=@ID";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
         }
         public bool XoaNhanVien(NhanVienDTO nhanVien)

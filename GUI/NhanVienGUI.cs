@@ -26,12 +26,14 @@ namespace GUI
             LoadNhanVien();
             LoadChucDanh();
             LoadGioiTinh();
+            LoadChiNhanh();
         }
         void LoadNhanVien()
         {
             dgvNhanVien.DataSource = NhanVienBUS.Instance.DSNhanVien();
             BindingNhanVien();
             isThem = false;
+            if (DangNhapGUI.IndexChiNhanh != 2) cboChiNhanh.Enabled = false;
             txtID.Enabled = false;
             btnHuyBo.Enabled = false;
             btnLuu.Enabled = false;
@@ -43,12 +45,13 @@ namespace GUI
                 cboChucDanh.Properties.Items.Add(row["Ten"]);
         }
   
-        //void LoadChiNhanh()
-        //{
-        //    DataTable dtbChiNhanh = ChucDanhBUS.Instance.DSChucDanh();
-        //    foreach (DataRow row in dtbChucDanh.Rows)
-        //        cboChucDanh.Properties.Items.Add(row["Ten"]);
-        //}
+        void LoadChiNhanh()
+        {
+            List<string> ChiNhanh = new List<string>();
+            ChiNhanh.Add("CN1");
+            ChiNhanh.Add("CN2");
+            cboGioiTinh.Properties.Items.AddRange(ChiNhanh);
+        }
 
         void LoadGioiTinh()
         {
@@ -72,6 +75,7 @@ namespace GUI
             txtSDT.DataBindings.Add("Text", source, "SDT", true, DataSourceUpdateMode.OnPropertyChanged);
             txtCMND.DataBindings.Add("Text", source, "CMND", true, DataSourceUpdateMode.OnPropertyChanged);
             txtEmail.DataBindings.Add("Text", source, "Email", true, DataSourceUpdateMode.OnPropertyChanged);
+            cboChiNhanh.DataBindings.Add("Text", source, "ChiNhanh", true, DataSourceUpdateMode.OnPropertyChanged);
             dgvNhanVien.DataSource = source;
         }
 
@@ -97,6 +101,7 @@ namespace GUI
             txtSDT.DataBindings.Clear();
             txtCMND.DataBindings.Clear();
             txtEmail.DataBindings.Clear();
+            cboChiNhanh.DataBindings.Clear();
             dgvNhanVien.DataBindings.Clear();
         }
 
@@ -117,14 +122,14 @@ namespace GUI
         {
             if (isThem)
             {
-                if (NhanVienBUS.Instance.ThemNhanVien(txtID.Text, txtTenNhanVien.Text, cboChucDanh.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtDiaChi.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text))
+                if (NhanVienBUS.Instance.ThemNhanVien(txtID.Text, txtTenNhanVien.Text, cboChucDanh.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtDiaChi.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
                     MessageBox.Show("Thêm nhân viên thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Thêm nhân viên thất bại!");
             }
             else
             {
-                if (NhanVienBUS.Instance.SuaNhanVien(txtID.Text, txtTenNhanVien.Text, cboChucDanh.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtDiaChi.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text))
+                if (NhanVienBUS.Instance.SuaNhanVien(txtID.Text, txtTenNhanVien.Text, cboChucDanh.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtDiaChi.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
                     MessageBox.Show("Chỉnh sửa nhân viên thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Chỉnh sửa nhân viên thất bại!");

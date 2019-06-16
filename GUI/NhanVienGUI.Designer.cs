@@ -66,6 +66,7 @@
             this.DiaChi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Email = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.ChiNhanh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cboChiNhanh = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grpChucNang)).BeginInit();
             this.grpChucNang.SuspendLayout();
@@ -359,7 +360,8 @@
             this.SDT,
             this.CMND,
             this.DiaChi,
-            this.Email});
+            this.Email,
+            this.ChiNhanh});
             this.gridView1.GridControl = this.dgvNhanVien;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -371,7 +373,7 @@
             this.ID.Name = "ID";
             this.ID.Visible = true;
             this.ID.VisibleIndex = 0;
-            this.ID.Width = 105;
+            this.ID.Width = 101;
             // 
             // Ten
             // 
@@ -380,7 +382,7 @@
             this.Ten.Name = "Ten";
             this.Ten.Visible = true;
             this.Ten.VisibleIndex = 1;
-            this.Ten.Width = 325;
+            this.Ten.Width = 314;
             // 
             // ChucDanh
             // 
@@ -389,7 +391,7 @@
             this.ChucDanh.Name = "ChucDanh";
             this.ChucDanh.Visible = true;
             this.ChucDanh.VisibleIndex = 2;
-            this.ChucDanh.Width = 232;
+            this.ChucDanh.Width = 224;
             // 
             // NgaySinh
             // 
@@ -398,7 +400,7 @@
             this.NgaySinh.Name = "NgaySinh";
             this.NgaySinh.Visible = true;
             this.NgaySinh.VisibleIndex = 3;
-            this.NgaySinh.Width = 251;
+            this.NgaySinh.Width = 242;
             // 
             // GioiTinh
             // 
@@ -407,7 +409,7 @@
             this.GioiTinh.Name = "GioiTinh";
             this.GioiTinh.Visible = true;
             this.GioiTinh.VisibleIndex = 4;
-            this.GioiTinh.Width = 150;
+            this.GioiTinh.Width = 145;
             // 
             // SDT
             // 
@@ -416,7 +418,7 @@
             this.SDT.Name = "SDT";
             this.SDT.Visible = true;
             this.SDT.VisibleIndex = 5;
-            this.SDT.Width = 211;
+            this.SDT.Width = 204;
             // 
             // CMND
             // 
@@ -425,7 +427,7 @@
             this.CMND.Name = "CMND";
             this.CMND.Visible = true;
             this.CMND.VisibleIndex = 6;
-            this.CMND.Width = 231;
+            this.CMND.Width = 223;
             // 
             // DiaChi
             // 
@@ -434,7 +436,7 @@
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.Visible = true;
             this.DiaChi.VisibleIndex = 7;
-            this.DiaChi.Width = 219;
+            this.DiaChi.Width = 211;
             // 
             // Email
             // 
@@ -443,7 +445,7 @@
             this.Email.Name = "Email";
             this.Email.Visible = true;
             this.Email.VisibleIndex = 8;
-            this.Email.Width = 433;
+            this.Email.Width = 323;
             // 
             // labelControl10
             // 
@@ -453,15 +455,21 @@
             this.labelControl10.TabIndex = 11;
             this.labelControl10.Text = "Chi Nhánh:";
             // 
+            // ChiNhanh
+            // 
+            this.ChiNhanh.Caption = "Chi Nhánh";
+            this.ChiNhanh.FieldName = "ChiNhanh";
+            this.ChiNhanh.Name = "ChiNhanh";
+            this.ChiNhanh.Visible = true;
+            this.ChiNhanh.VisibleIndex = 9;
+            this.ChiNhanh.Width = 171;
+            // 
             // cboChiNhanh
             // 
             this.cboChiNhanh.Location = new System.Drawing.Point(251, 337);
             this.cboChiNhanh.Name = "cboChiNhanh";
             this.cboChiNhanh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboChiNhanh.Properties.Items.AddRange(new object[] {
-            "Khách sạn Hồng Hạnh 1",
-            "Khách sạn Hồng Hạnh 2"});
             this.cboChiNhanh.Size = new System.Drawing.Size(362, 50);
             this.cboChiNhanh.TabIndex = 7;
             this.cboChiNhanh.Click += new System.EventHandler(this.txt_Click);
@@ -541,7 +549,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn CMND;
         private DevExpress.XtraGrid.Columns.GridColumn DiaChi;
         private DevExpress.XtraGrid.Columns.GridColumn Email;
-        private DevExpress.XtraEditors.ComboBoxEdit cboChiNhanh;
         private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraGrid.Columns.GridColumn ChiNhanh;
+        private DevExpress.XtraEditors.ComboBoxEdit cboChiNhanh;
     }
 }

@@ -16,6 +16,7 @@ namespace GUI
     {
         public static string IdNhanVien = "";
         public static int IdChucDanh = -1;
+        public static int IndexChiNhanh;
 
         public DangNhapGUI()
         {
@@ -41,6 +42,7 @@ namespace GUI
             {
                 IdNhanVien = txtMaNhanVien.Text;
                 IdChucDanh = DangNhapBUS.Instance.IdChucDanh(IdNhanVien);
+                IndexChiNhanh = cboChiNhanh.SelectedIndex;
                 Form f = new MainGUI();
                 //Xử lý khi đóng form con thì sẽ chạy event show lại form này
                 f.FormClosed += F_FormClosed;
