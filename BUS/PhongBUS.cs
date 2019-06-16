@@ -30,7 +30,7 @@ namespace BUS
             return PhongDAO.Instance.DSPhong();
         }
 
-        public bool ThemPhong(string Id, string TenPhong, string LoaiPhong, string TrangThai)
+        public bool ThemPhong(string Id, string TenPhong, string LoaiPhong, string TrangThai, string ChiNhanh)
         {
             PhongDTO phong = new PhongDTO();
             try
@@ -39,6 +39,7 @@ namespace BUS
                 phong.Ten = TenPhong;
                 phong.IdLoai = PhongDAO.Instance.IdLoaiPhong(LoaiPhong);
                 phong.IdTrangThai = PhongDAO.Instance.IdTrangThai(TrangThai);
+                phong.IdChiNhanh = ChiNhanh;
             }
             catch (Exception)
             {
@@ -46,7 +47,7 @@ namespace BUS
             }
             return PhongDAO.Instance.ThemPhong(phong);
         }
-        public bool SuaPhong(string Id, string TenPhong, string LoaiPhong, string TrangThai)
+        public bool SuaPhong(string Id, string TenPhong, string LoaiPhong, string TrangThai, string ChiNhanh)
         {
             PhongDTO phong = new PhongDTO();
             try
@@ -55,6 +56,7 @@ namespace BUS
                 phong.Ten = TenPhong;
                 phong.IdLoai = PhongDAO.Instance.IdLoaiPhong(LoaiPhong);
                 phong.IdTrangThai = PhongDAO.Instance.IdTrangThai(TrangThai);
+                phong.IdChiNhanh = ChiNhanh;
             }
             catch (Exception)
             {

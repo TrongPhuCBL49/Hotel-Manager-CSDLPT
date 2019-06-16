@@ -24,6 +24,7 @@ namespace GUI
         {
             LoadPhong();
             LoadLoaiPhong();
+            LoadChiNhanh();
         }
         void LoadPhong()
         {
@@ -31,6 +32,7 @@ namespace GUI
             LoadTrangThai();
             BindingPhong();
             isThem = false;
+            if (DangNhapGUI.IndexChiNhanh != 2) cboChiNhanh.Enabled = false;
             txtID.Enabled = false;
             btnHuyBo.Enabled = false;
             btnLuu.Enabled = false;
@@ -51,6 +53,13 @@ namespace GUI
             TrangThai.Add("Chưa đặt");
             cboTrangThai.Properties.Items.AddRange(TrangThai);
         }
+        void LoadChiNhanh()
+        {
+            List<string> ChiNhanh = new List<string>();
+            ChiNhanh.Add("CN1");
+            ChiNhanh.Add("CN2");
+            cboChiNhanh.Properties.Items.AddRange(ChiNhanh);
+        }
         public void BindingPhong()
         {
             BindingSource source = new BindingSource();
@@ -60,6 +69,7 @@ namespace GUI
             txtTenPhong.DataBindings.Add("Text", source, "Ten", true, DataSourceUpdateMode.OnPropertyChanged);
             cboLoaiPhong.DataBindings.Add("Text", source, "LoaiPhong", true, DataSourceUpdateMode.OnPropertyChanged);
             cboTrangThai.DataBindings.Add("Text", source, "TrangThai", true, DataSourceUpdateMode.OnPropertyChanged);
+            cboChiNhanh.DataBindings.Add("Text", source, "ChiNhanh", true, DataSourceUpdateMode.OnPropertyChanged);
             dgvPhong.DataSource = source;
         }
 
@@ -76,6 +86,7 @@ namespace GUI
             txtTenPhong.DataBindings.Clear();
             cboLoaiPhong.DataBindings.Clear();
             cboTrangThai.DataBindings.Clear();
+            cboChiNhanh.DataBindings.Clear();
             dgvPhong.DataBindings.Clear();
         }
 
@@ -97,14 +108,14 @@ namespace GUI
         {
             if (isThem)
             {
-                if (PhongBUS.Instance.ThemPhong(txtID.Text, txtTenPhong.Text, cboLoaiPhong.Text, cboTrangThai.Text))
+                if (PhongBUS.Instance.ThemPhong(txtID.Text, txtTenPhong.Text, cboLoaiPhong.Text, cboTrangThai.Text, cboChiNhanh.Text))
                     MessageBox.Show("Thêm phòng thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Thêm phòng thất bại!");
             }
             else
             {
-                if (PhongBUS.Instance.SuaPhong(txtID.Text, txtTenPhong.Text, cboLoaiPhong.Text, cboTrangThai.Text))
+                if (PhongBUS.Instance.SuaPhong(txtID.Text, txtTenPhong.Text, cboLoaiPhong.Text, cboTrangThai.Text, cboChiNhanh.Text))
                     MessageBox.Show("Chỉnh sửa phòng thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Chỉnh sửa phòng thất bại!");
