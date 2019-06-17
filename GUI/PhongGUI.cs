@@ -108,10 +108,13 @@ namespace GUI
         {
             if (isThem)
             {
-                if (PhongBUS.Instance.ThemPhong(txtID.Text, txtTenPhong.Text, cboLoaiPhong.Text, cboTrangThai.Text, cboChiNhanh.Text))
-                    MessageBox.Show("Thêm phòng thành công!");
+                if (PhongBUS.Instance.KiemTraIDPhong(txtID.Text))
+                    if (PhongBUS.Instance.ThemPhong(txtID.Text, txtTenPhong.Text, cboLoaiPhong.Text, cboTrangThai.Text, cboChiNhanh.Text))
+                        MessageBox.Show("Thêm phòng thành công!");
+                    else
+                        MessageBox.Show("Có lỗi xảy ra. Thêm phòng thất bại!");
                 else
-                    MessageBox.Show("Có lỗi xảy ra. Thêm phòng thất bại!");
+                    MessageBox.Show("Mã phòng đã tồn tại");
             }
             else
             {

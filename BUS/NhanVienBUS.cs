@@ -80,6 +80,9 @@ namespace BUS
             NhanVien.Id = Id;
             return NhanVienDAO.Instance.XoaNhanVien(NhanVien);
         }
-
+        public bool KiemTraIDNhanVien(string IDNhanVien)
+        {
+            return NhanVienDAO.Instance.KiemTraIDNhanVien(IDNhanVien);
+        }
     }
 }

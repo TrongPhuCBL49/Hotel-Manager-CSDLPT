@@ -78,6 +78,9 @@ namespace BUS
             KhachHang.Id = Id;
             return KhachHangDAO.Instance.XoaKhachHang(KhachHang);
         }
-
+        public bool KiemTraIDKhachHang(string IDKhachHang)
+        {
+            return KhachHangDAO.Instance.KiemTraIDKhachHang(IDKhachHang);
+        }
     }
 }

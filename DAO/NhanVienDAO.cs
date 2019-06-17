@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DAO
 {
@@ -58,6 +59,22 @@ namespace DAO
             string query = "Select ID From ChucDanh Where Ten = N'" + chucDanh + "'";
             DataTable dtb = DataProvider.Instance.getDS(query);
             return int.Parse(dtb.Rows[0]["ID"].ToString());
+        }
+        public bool KiemTraIDNhanVien(string IDNhanVien)
+        {
+            string strCon = "Data Source=DESKTOP-V4ENO1N\\AUGUSTINONGUYEN2;" +
+                            "Initial Catalog=SimpleQuanLyKhachSan;" +
+                            "User id=sa;" +
+                            "Password=04010409tete;";
+            DataTable tbl = new DataTable();
+            using (SqlConnection con = new SqlConnection(strCon))
+            {
+                con.Open();
+                string query = "Select * From NhanVien Where ID = '" + IDNhanVien + "'";
+                SqlDataAdapter dap = new SqlDataAdapter(query, con);
+                dap.Fill(tbl);
+            }
+            return !(tbl.Rows.Count > 0);
         }
     }
 }

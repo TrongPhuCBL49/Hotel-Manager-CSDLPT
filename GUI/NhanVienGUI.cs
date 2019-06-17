@@ -122,10 +122,13 @@ namespace GUI
         {
             if (isThem)
             {
-                if (NhanVienBUS.Instance.ThemNhanVien(txtID.Text, txtTenNhanVien.Text, cboChucDanh.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtDiaChi.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
-                    MessageBox.Show("Thêm nhân viên thành công!");
+                if (NhanVienBUS.Instance.KiemTraIDNhanVien(txtID.Text))
+                    if (NhanVienBUS.Instance.ThemNhanVien(txtID.Text, txtTenNhanVien.Text, cboChucDanh.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtDiaChi.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
+                        MessageBox.Show("Thêm nhân viên thành công!");
+                    else
+                        MessageBox.Show("Có lỗi xảy ra. Thêm nhân viên thất bại!");
                 else
-                    MessageBox.Show("Có lỗi xảy ra. Thêm nhân viên thất bại!");
+                    MessageBox.Show("Mã nhân viên đã tồn tại");
             }
             else
             {

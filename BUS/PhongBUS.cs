@@ -70,6 +70,9 @@ namespace BUS
             phong.Id = Id;
             return PhongDAO.Instance.XoaPhong(phong);
         }
-        
+        public bool KiemTraIDPhong(string IDPhong)
+        {
+            return PhongDAO.Instance.KiemTraIDPhong(IDPhong);
+        }
     }
 }

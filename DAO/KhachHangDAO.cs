@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DAO
 {
@@ -51,6 +52,22 @@ namespace DAO
             object[] values = { khachHang.Id };
             string query = "Delete KhachHang Where ID=@ID";
             return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
+        }
+        public bool KiemTraIDKhachHang(string IDKhachHang)
+        {
+            string strCon = "Data Source=DESKTOP-V4ENO1N\\AUGUSTINONGUYEN2;" +
+                            "Initial Catalog=SimpleQuanLyKhachSan;" +
+                            "User id=sa;" +
+                            "Password=04010409tete;";
+            DataTable tbl = new DataTable();
+            using (SqlConnection con = new SqlConnection(strCon))
+            {
+                con.Open();
+                string query = "Select * From KhachHang Where ID = '" + IDKhachHang + "'";
+                SqlDataAdapter dap = new SqlDataAdapter(query, con);
+                dap.Fill(tbl);
+            }
+            return !(tbl.Rows.Count > 0);
         }
     }
 }

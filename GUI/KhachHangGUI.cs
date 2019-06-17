@@ -112,10 +112,13 @@ namespace GUI
         {
             if (isThem)
             {
-                if (KhachHangBUS.Instance.ThemKhachHang(txtID.Text, txtTenKhachHang.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtQuocTich.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
-                    MessageBox.Show("Thêm khách hàng thành công!");
+                if (KhachHangBUS.Instance.KiemTraIDKhachHang(txtID.Text))
+                    if (KhachHangBUS.Instance.ThemKhachHang(txtID.Text, txtTenKhachHang.Text, cboNgaySinh.DateTime, cboGioiTinh.Text, txtQuocTich.Text, txtSDT.Text, txtCMND.Text, txtEmail.Text, cboChiNhanh.Text))
+                        MessageBox.Show("Thêm khách hàng thành công!");
+                    else
+                        MessageBox.Show("Có lỗi xảy ra. Thêm khách hàng thất bại!");
                 else
-                    MessageBox.Show("Có lỗi xảy ra. Thêm khách hàng thất bại!");
+                    MessageBox.Show("Mã khách hàng đã tồn tại");
             }
             else
             {
