@@ -58,7 +58,7 @@
             this.pageDanhMucQuanLy = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbQuanLyNhanSu = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageLeTan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -106,7 +106,7 @@
             this.pageDanhMucQuanLy,
             this.pageLeTan,
             this.pageBaoCao});
-            this.ribbon.Size = new System.Drawing.Size(2194, 360);
+            this.ribbon.Size = new System.Drawing.Size(2194, 346);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnBoPhan
@@ -337,7 +337,7 @@
             this.pageDanhMucQuanLy.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
             this.ribbonPageGroup6,
-            this.ribbonPageGroup7,
+            this.rbQuanLyNhanSu,
             this.ribbonPageGroup9});
             this.pageDanhMucQuanLy.Name = "pageDanhMucQuanLy";
             this.pageDanhMucQuanLy.Text = "Danh mục quản lý";
@@ -355,12 +355,12 @@
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Quản lý dịch vụ";
             // 
-            // ribbonPageGroup7
+            // rbQuanLyNhanSu
             // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.btnNhanVien);
-            this.ribbonPageGroup7.ItemLinks.Add(this.btnChucDanh);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "Quản lý nhân sự";
+            this.rbQuanLyNhanSu.ItemLinks.Add(this.btnNhanVien);
+            this.rbQuanLyNhanSu.ItemLinks.Add(this.btnChucDanh);
+            this.rbQuanLyNhanSu.Name = "rbQuanLyNhanSu";
+            this.rbQuanLyNhanSu.Text = "Quản lý nhân sự";
             // 
             // ribbonPageGroup9
             // 
@@ -399,19 +399,19 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 1493);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 1496);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(2194, 79);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(2194, 76);
             // 
             // tabMain
             // 
             this.tabMain.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabMain.Location = new System.Drawing.Point(0, 360);
+            this.tabMain.Location = new System.Drawing.Point(0, 346);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedTabPage = this.xtraTabPage1;
-            this.tabMain.Size = new System.Drawing.Size(2194, 1133);
+            this.tabMain.Size = new System.Drawing.Size(2194, 1150);
             this.tabMain.TabIndex = 2;
             this.tabMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -422,7 +422,7 @@
             // 
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.xtraTabPage1.Size = new System.Drawing.Size(2178, 1063);
+            this.xtraTabPage1.Size = new System.Drawing.Size(2180, 1081);
             this.xtraTabPage1.Text = "Trang chủ";
             // 
             // MainGUI
@@ -475,7 +475,7 @@
         private DevExpress.XtraBars.BarButtonItem btnNhanVien;
         private DevExpress.XtraBars.BarButtonItem btnDSPhong;
         private DevExpress.XtraBars.BarButtonItem btnKhachHang;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbQuanLyNhanSu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.Ribbon.RibbonPage pageLeTan;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;

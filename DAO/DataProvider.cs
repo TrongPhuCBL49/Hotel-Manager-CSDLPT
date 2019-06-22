@@ -12,6 +12,8 @@ namespace DAO
     public class DataProvider
     {
         public static string DataSource { get; set; }
+        public static string UserId { get; set; }
+        public static string Password { get; set; }
         private static DataProvider instance;
         public static DataProvider Instance
         {
@@ -32,9 +34,11 @@ namespace DAO
             connectDB();
         }
 
-        public static void getDataSource(string dataSource)
+        public static void getDataSource(string dataSource, string maNhanVien, string matKhau)
         {
             DataSource = dataSource;
+            UserId = maNhanVien;
+            Password = matKhau;
         }
 
         //Kết nối
@@ -42,8 +46,8 @@ namespace DAO
         {
             string strCon = "Data Source=" + DataSource + ";" +
                             "Initial Catalog=SimpleQuanLyKhachSan;" +
-                            "User id=sa;" +
-                            "Password=04010409tete;";
+                            "User id=" + UserId + ";" +
+                            "Password=" + Password + ";";
             con = new SqlConnection(strCon);
             cmd = con.CreateCommand();
             try
@@ -51,9 +55,9 @@ namespace DAO
                 con.Open();
                 con.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                //MessageBox.Show("Error: " + ex.Message);
                 con.Dispose();
             }
         }

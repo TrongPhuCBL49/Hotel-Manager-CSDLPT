@@ -35,13 +35,11 @@ namespace GUI
 
         void login()
         {
-            // Lấy Tên server dựa vào lựa chọn chi nhánh
-            DangNhapBUS.getDataSource(dataSource(cboChiNhanh.SelectedIndex));
             // Kiểm tra đăng nhập
-            if (DangNhapBUS.Instance.KiemTraUser(txtMaNhanVien.Text, txtMatKhau.Text))
+            if (DangNhapBUS.KiemTraUser(dataSource(cboChiNhanh.SelectedIndex), txtMaNhanVien.Text, txtMatKhau.Text))
             {
                 IdNhanVien = txtMaNhanVien.Text;
-                IdChucDanh = DangNhapBUS.Instance.IdChucDanh(IdNhanVien);
+                IdChucDanh = idChucDanh(IdNhanVien);
                 IndexChiNhanh = cboChiNhanh.SelectedIndex;
                 Form f = new MainGUI();
                 //Xử lý khi đóng form con thì sẽ chạy event show lại form này
@@ -53,12 +51,15 @@ namespace GUI
                 txtMatKhau.Text = "";
             }
             else
+            {
                 MessageBox.Show("Mã nhân viên hoặc mật khẩu không đúng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Restart();
+            }
         }
 
         private void F_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
+            Application.Restart();
         }
 
         private void btnCancelDangNhap_Click(object sender, EventArgs e)
@@ -107,6 +108,21 @@ namespace GUI
             }
             return list;
         }
-
+        public int idChucDanh(string idNhanVien)
+        {
+            string strCon = "Data Source=" + dataSource(2) + ";" +
+                            "Initial Catalog=SimpleQuanLyKhachSan;" +
+                            "User id=sa;" +
+                            "Password=04010409tete;";
+            using (SqlConnection con = new SqlConnection(strCon))
+            {
+                con.Open();
+                DataTable tbl = new DataTable();
+                string sql = "Select IDChucDanh From NhanVien Where ID = '" + idNhanVien + "'";
+                SqlDataAdapter dap = new SqlDataAdapter(sql, con);
+                dap.Fill(tbl);
+                return int.Parse(tbl.Rows[0]["IDChucDanh"].ToString());
+            }
+        }
     }
 }

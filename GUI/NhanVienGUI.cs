@@ -35,6 +35,7 @@ namespace GUI
             isThem = false;
             if (DangNhapGUI.IndexChiNhanh != 2) cboChiNhanh.Enabled = false; 
             txtID.Enabled = false;
+            cboChucDanh.Enabled = false;
             btnHuyBo.Enabled = false;
             btnLuu.Enabled = false;
         }
@@ -113,6 +114,7 @@ namespace GUI
             btnHuyBo.Enabled = true;
             btnLuu.Enabled = true;
             txtID.Enabled = true;
+            cboChucDanh.Enabled = true;
             btnXoa.Enabled = false;
             btnThem.Enabled = false;
             dgvNhanVien.Enabled = false;
@@ -141,6 +143,7 @@ namespace GUI
             btnThem.Enabled = true;
             btnXoa.Enabled = true;
             txtID.Enabled = false;
+            cboChucDanh.Enabled = false;
             btnLuu.Enabled = false;
             btnHuyBo.Enabled = false;
             dgvNhanVien.Enabled = true;
@@ -168,6 +171,7 @@ namespace GUI
             btnLuu.Enabled = false;
             btnHuyBo.Enabled = false;
             txtID.Enabled = false;
+            cboChucDanh.Enabled = false;
             btnXoa.Enabled = true;
             btnThem.Enabled = true;
             dgvNhanVien.Enabled = true;

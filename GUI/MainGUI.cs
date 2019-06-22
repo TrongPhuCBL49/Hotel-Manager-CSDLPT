@@ -19,6 +19,7 @@ namespace GUI
         public MainGUI()
         {
             InitializeComponent();
+            phanQuyenUser();
         }
 
 #region thiết lập TabControl
@@ -52,6 +53,21 @@ namespace GUI
             }
         }
 #endregion
+        private void phanQuyenUser()
+        {
+            switch (DangNhapGUI.IdChucDanh)
+            {
+                case 1:
+                    break;
+                case 2:
+                    if (DangNhapGUI.IndexChiNhanh == 2)
+                        rbQuanLyNhanSu.Enabled = false;
+                    break;
+                default:
+                    rbQuanLyNhanSu.Enabled = false;
+                    break;
+            }
+        }
         private void btnDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)
         {
             DoiMatKhauGUI doiMatKhauGUI = new DoiMatKhauGUI();
@@ -115,12 +131,12 @@ namespace GUI
 
         private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnThoat_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void btnDSKhachHang_ItemClick(object sender, ItemClickEventArgs e)

@@ -22,21 +22,21 @@ namespace BUS
             }
         }
 
-        public bool KiemTraUser(string idNhanVien, string pass)
-        {
-            UserDTO user = new UserDTO();
-            user.IdNhanVien = idNhanVien;
-            user.Pass = pass;
-            return DangNhapDAO.Instance.KiemTraUser(user);
-        }
+        //public bool KiemTraUser(string idNhanVien, string pass)
+        //{
+        //    UserDTO user = new UserDTO();
+        //    user.IdNhanVien = idNhanVien;
+        //    user.Pass = pass;
+        //    return DangNhapDAO.Instance.KiemTraUser(user);
+        //}
 
         public int IdChucDanh(string idNhanVien)
         {
             return DangNhapDAO.Instance.IdChucDanh(idNhanVien);
         }
-        public static void getDataSource(string dataSource)
+        public static bool KiemTraUser(string dataSource, string maNhanVien, string matKhau)
         {
-            DangNhapDAO.getDataSource(dataSource);
+            return DangNhapDAO.KiemTraUser(dataSource, maNhanVien, matKhau);
         }
 
     }
